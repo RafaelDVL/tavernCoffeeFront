@@ -3,23 +3,23 @@
   <mat-drawer #drawer class="example-sidenav" mode="over" position="end">
     <mat-list>
       <div mat-subheader class="mat-elevation-z2 title">Menu de Opções</div>
-      <mat-list-item *ngFor="let folder of folders">
-        <mat-icon matListItemIcon>{{folder.icon}}</mat-icon>
+      <mat-list-item *ngFor="let folder of folders" [routerLink]="folder.routerlink">
+        <mat-icon color="primary" matListItemIcon>{{folder.icon}}</mat-icon>
         <div matListItemTitle>{{folder.name}}</div>
       </mat-list-item>
       <mat-divider></mat-divider>
       <div mat-subheader>Pedidos</div>
       <mat-list-item *ngFor="let note of notes">
-        <mat-icon matListItemIcon>{{note.icon}}</mat-icon>
+        <mat-icon color="primary" matListItemIcon>{{note.icon}}</mat-icon>
         <div matListItemTitle>{{note.name}}</div>
       </mat-list-item>
     </mat-list>
   </mat-drawer>
   <div class="boxbutton">
+    <router-outlet></router-outlet>
     <button mat-icon-button class="mat-elevation-z8 example-icon" color="primary" (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <router-outlet></router-outlet>
   </div>
 
 </mat-drawer-container>
