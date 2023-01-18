@@ -8,19 +8,6 @@ import { HeaderComponent } from './Model/main/header/header.component';
 import { FooterComponent } from './Model/main/footer/footer.component';
 import { NavcontentComponent } from './Model/main/navcontent/navcontent.component';
 import { MaterialModule } from './Shared/material/material.module';
-import { HomeComponent } from './View/home/home.component';
-import { ClienteReadComponent } from './View/cliente/cliente-read/cliente-read.component';
-import { ClienteCreateComponent } from './View/cliente/cliente-create/cliente-create.component';
-import { ClienteEditComponent } from './View/cliente/cliente-edit/cliente-edit.component';
-import { ClienteDeleteComponent } from './View/cliente/cliente-delete/cliente-delete.component';
-import { AtendentesReadComponent } from './View/atendetes/atendentes-read/atendentes-read.component';
-import { AtendentesCreateComponent } from './View/atendetes/atendentes-create/atendentes-create.component';
-import { AtendentesEditComponent } from './View/atendetes/atendentes-edit/atendentes-edit.component';
-import { AtendentesDeleteComponent } from './View/atendetes/atendentes-delete/atendentes-delete.component';
-import { ProdutosReadComponent } from './View/produtos/produtos-read/produtos-read.component';
-import { ProdutosCreateComponent } from './View/produtos/produtos-create/produtos-create.component';
-import { ProdutosEditComponent } from './View/produtos/produtos-edit/produtos-edit.component';
-import { ProdutosDeleteComponent } from './View/produtos/produtos-delete/produtos-delete.component';
 
 
 @NgModule({
@@ -28,20 +15,7 @@ import { ProdutosDeleteComponent } from './View/produtos/produtos-delete/produto
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    NavcontentComponent,
-    HomeComponent,
-    ClienteReadComponent,
-    ClienteCreateComponent,
-    ClienteEditComponent,
-    ClienteDeleteComponent,
-    AtendentesReadComponent,
-    AtendentesCreateComponent,
-    AtendentesEditComponent,
-    AtendentesDeleteComponent,
-    ProdutosReadComponent,
-    ProdutosCreateComponent,
-    ProdutosEditComponent,
-    ProdutosDeleteComponent
+    NavcontentComponent
   ],
   imports: [
     BrowserModule,
