@@ -1,7 +1,7 @@
 
 <mat-drawer-container class="container">
   <mat-drawer #drawer class="example-sidenav" mode="over" position="end">
-    <mat-list>
+    <mat-list class="nav-list">
       <div mat-subheader class="mat-elevation-z2 title">Menu de Opções</div>
       <mat-list-item *ngFor="let folder of folders" [routerLink]="folder.routerlink">
         <mat-icon color="primary" matListItemIcon>{{folder.icon}}</mat-icon>
@@ -9,7 +9,7 @@
       </mat-list-item>
       <mat-divider></mat-divider>
       <div mat-subheader>Pedidos</div>
-      <mat-list-item *ngFor="let note of notes">
+      <mat-list-item *ngFor="let note of notes" [routerLink]="note.routerlink">
         <mat-icon color="primary" matListItemIcon>{{note.icon}}</mat-icon>
         <div matListItemTitle>{{note.name}}</div>
       </mat-list-item>

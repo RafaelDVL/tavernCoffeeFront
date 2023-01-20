@@ -1,0 +1,76 @@
+<div class="container" auto>
+  <mat-card class="card">
+    <mat-card-title class="mat-elevation-z5 titlecard">Pedidos</mat-card-title>
+    <mat-card-content class="cardcontent">
+
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+      </mat-form-field>
+
+      <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="dataAbertura">
+          <th mat-header-cell *matHeaderCellDef> Data Abertura </th>
+          <td mat-cell *matCellDef="let element"> {{element.dataAbertura}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="entrega">
+          <th mat-header-cell *matHeaderCellDef> Tipo entrega </th>
+          <td mat-cell *matCellDef="let element"> {{element.entrega}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="prioridade">
+          <th mat-header-cell *matHeaderCellDef> Prioridade </th>
+          <td mat-cell *matCellDef="let element"> {{element.prioridade}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef> Status </th>
+          <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nomeCliente">
+          <th mat-header-cell *matHeaderCellDef> Nome Cliente </th>
+          <td mat-cell *matCellDef="let element"> {{element.nomeCliente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="nomeAtendente">
+          <th mat-header-cell *matHeaderCellDef> Nome Atendente </th>
+          <td mat-cell *matCellDef="let element"> {{element.nomeAtendente}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="listaProduto">
+          <th mat-header-cell *matHeaderCellDef> Lista de Produtos </th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-icon-button color="primary" aria-label="Example icon button with a menu icon" (click)="openDialog(element.id)">
+              <mat-icon>menu</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <button mat-stroked-button color="green"><mat-icon>edit</mat-icon>Editar</button>
+            <button mat-stroked-button color="warn"><mat-icon>delete</mat-icon>Apagar</button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+        </tr>
+      </table>
+
+    </mat-card-content>
+  </mat-card>
+</div>
+
