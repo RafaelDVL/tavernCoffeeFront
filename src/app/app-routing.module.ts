@@ -4,6 +4,7 @@ import { HomeComponent } from './View/home/home.component';
 import { ClienteReadComponent } from './View/cliente/cliente-read/cliente-read.component';
 import { AtendentesReadComponent } from './View/atendetes/atendentes-read/atendentes-read.component';
 import { ProdutosReadComponent } from './View/produtos/produtos-read/produtos-read.component';
+import { PedidosReadComponent } from './View/pedidos/pedidos-read/pedidos-read.component';
 
 const routes: Routes = [
   {
@@ -25,6 +26,14 @@ const routes: Routes = [
   {
     path: "clientes",
     component: ClienteReadComponent
+  },
+  {
+    path: "pedidos",
+    component: PedidosReadComponent
+  },
+  {
+    path: 'pedidosfechados',
+    component: PedidosReadComponent
   }
 ];
 

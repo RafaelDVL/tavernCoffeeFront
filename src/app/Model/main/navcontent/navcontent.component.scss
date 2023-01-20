@@ -28,6 +28,17 @@ button{
   margin-right: 10px;
 }
 
+mat-list-item{
+ margin-top: 5px;
+ margin-bottom: 5px;
+}
+
+mat-list-item:hover{
+  scale: 1.02;
+  background-color: rgba(0, 0, 0, 0.068);
+  border-radius: 10px;
+}
+
 .title{
   margin: auto;
   padding: 10px;

@@ -40,12 +40,12 @@ export class NavcontentComponent {
     {
       name: 'Pedidos Aberto e em Andamento',
       icon: 'shopping_bag',
-      routerlink: ''
+      routerlink: 'pedidos'
     },
     {
       name: 'Pedidos Fechados',
       icon: 'local_mall',
-      routerlink: ''
+      routerlink: 'pedidosfechados'
     },
     {
       name: 'Logout',

@@ -21,6 +21,11 @@ import { ProdutosReadComponent } from './View/produtos/produtos-read/produtos-re
 import { ProdutosCreateComponent } from './View/produtos/produtos-create/produtos-create.component';
 import { ProdutosEditComponent } from './View/produtos/produtos-edit/produtos-edit.component';
 import { ProdutosDeleteComponent } from './View/produtos/produtos-delete/produtos-delete.component';
+import { PedidosReadComponent } from './View/pedidos/pedidos-read/pedidos-read.component';
+import { PedidosEditComponent } from './View/pedidos/pedidos-edit/pedidos-edit.component';
+import { PedidosCreateComponent } from './View/pedidos/pedidos-create/pedidos-create.component';
+import { PedidosDeleteComponent } from './View/pedidos/pedidos-delete/pedidos-delete.component';
+import { DialogPedidoComponent } from './Shared/dialog-pedido/dialog-pedido.component';
 
 
 @NgModule({
@@ -41,7 +46,12 @@ import { ProdutosDeleteComponent } from './View/produtos/produtos-delete/produto
     ProdutosReadComponent,
     ProdutosCreateComponent,
     ProdutosEditComponent,
-    ProdutosDeleteComponent
+    ProdutosDeleteComponent,
+    PedidosReadComponent,
+    PedidosEditComponent,
+    PedidosCreateComponent,
+    PedidosDeleteComponent,
+    DialogPedidoComponent,
   ],
   imports: [
     BrowserModule,
