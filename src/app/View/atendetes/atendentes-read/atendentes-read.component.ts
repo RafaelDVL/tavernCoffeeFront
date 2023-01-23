@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { Atendente } from 'src/app/Model/atendente';
+import { AtendenteService } from '../../../Services/atendente.service';
 
 const ATENDENTE_LIST: Atendente[] = [
   { id: 5,
@@ -22,9 +23,24 @@ const ATENDENTE_LIST: Atendente[] = [
   templateUrl: './atendentes-read.component.html',
   styleUrls: ['./atendentes-read.component.scss']
 })
-export class AtendentesReadComponent {
+export class AtendentesReadComponent implements OnInit{
+
   displayedColumns: string[] = ['nome', 'cpf', 'email', 'telefone', 'endereco', 'datacriacao', 'actions'];
-  dataSource = new MatTableDataSource(ATENDENTE_LIST);
+  dataSource: any ;
+
+  constructor(private service: AtendenteService){}
+
+  ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll():void{
+    this.service.findAll().subscribe(
+      resposta => {
+        this.dataSource = new MatTableDataSource(resposta);
+      }
+    )
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

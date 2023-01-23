@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Cliente } from 'src/app/Model/cliente';
+import { ClienteService } from '../../../Services/cliente.service';
 
 const CLIENTE_LIST: Cliente[] = [
   { id: 5,
@@ -13,9 +14,7 @@ const CLIENTE_LIST: Cliente[] = [
   perfil:[
     "CLIENTE"
     ],
-  datacriacao: "2023-01-18 17:27:25"
-}
-
+  datacriacao: "2023-01-18 17:27:25" }
 ];
 
 @Component({
@@ -23,12 +22,33 @@ const CLIENTE_LIST: Cliente[] = [
   templateUrl: './cliente-read.component.html',
   styleUrls: ['./cliente-read.component.scss']
 })
-export class ClienteReadComponent {
+export class ClienteReadComponent implements OnInit{
+
+  clientList: any;
+
+
   displayedColumns: string[] = ['nome', 'cpf', 'email', 'telefone', 'endereco', 'datacriacao', 'actions'];
-  dataSource = new MatTableDataSource(CLIENTE_LIST);
+
+  constructor(private service: ClienteService){
+
+  }
+  ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll():void{
+    this.service.findAll().subscribe(
+      (resposta) => {
+        this.clientList = new MatTableDataSource(resposta);
+        console.log(this.clientList)
+      }
+    )
+  }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.clientList.filter = filterValue.trim().toLowerCase();
   }
+
+
 }

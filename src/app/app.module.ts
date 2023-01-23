@@ -27,6 +27,7 @@ import { PedidosCreateComponent } from './View/pedidos/pedidos-create/pedidos-cr
 import { PedidosDeleteComponent } from './View/pedidos/pedidos-delete/pedidos-delete.component';
 import { DialogPedidoComponent } from './Shared/dialog-pedido/dialog-pedido.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -60,7 +61,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     MaterialModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

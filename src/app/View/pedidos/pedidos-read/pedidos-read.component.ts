@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { Pedido } from 'src/app/Model/pedidos';
 import { DialogPedidoComponent } from 'src/app/Shared/dialog-pedido/dialog-pedido.component';
 import { DialogInfoComponent } from 'src/app/Shared/material/dialog-info/dialog-info.component';
+import { PedidoService } from '../../../Services/pedido.service';
 
 const PEDIDO_LIST: Pedido[] = [
   { id: 2,
@@ -12,7 +13,7 @@ const PEDIDO_LIST: Pedido[] = [
     entrega: "Retirar",
     prioridade: 1,
     status: 0,
-    listaProduto: [{"Produtos":3}],
+    itemBillList: [{"Produtos":3}],
     cliente: 10,
     atendente: 12,
     nomeAtendente: 'Marcelo Dias Rodrigues',
@@ -24,12 +25,27 @@ const PEDIDO_LIST: Pedido[] = [
   templateUrl: './pedidos-read.component.html',
   styleUrls: ['./pedidos-read.component.scss']
 })
-export class PedidosReadComponent {
+export class PedidosReadComponent implements OnInit {
 
-  displayedColumns: string[] = ['dataAbertura', 'entrega', 'prioridade', 'status', 'nomeCliente', 'nomeAtendente', 'listaProduto', 'actions'];
-  dataSource = new MatTableDataSource(PEDIDO_LIST);
+  displayedColumns: string[] = ['dataAbertura', 'entrega', 'prioridade', 'status', 'nomeCliente', 'nomeAtendente', 'itemBillList', 'actions'];
+  dataSource: any;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(
+    private service: PedidoService,
+    public dialog: MatDialog,
+    ) {}
+
+  ngOnInit(): void {
+    this.findAll();
+  }
+
+  findAll():void{
+    this.service.findAll().subscribe(
+      resposta => {
+        this.dataSource = new MatTableDataSource(resposta);
+      }
+    )
+  }
 
   openDialog(obs: string): void {
     const dialogRef = this.dialog.open(DialogPedidoComponent, {

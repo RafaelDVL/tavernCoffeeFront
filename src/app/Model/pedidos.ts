@@ -7,7 +7,7 @@ export interface Pedido {
   entrega: string;
   prioridade: number;
   status: number;
-  listaProduto: any;
+  itemBillList: any;
   cliente: number;
   atendente: number;
   nomeAtendente: string;
