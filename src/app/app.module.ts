@@ -26,6 +26,7 @@ import { PedidosEditComponent } from './View/pedidos/pedidos-edit/pedidos-edit.c
 import { PedidosCreateComponent } from './View/pedidos/pedidos-create/pedidos-create.component';
 import { PedidosDeleteComponent } from './View/pedidos/pedidos-delete/pedidos-delete.component';
 import { DialogPedidoComponent } from './Shared/dialog-pedido/dialog-pedido.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -57,7 +58,9 @@ import { DialogPedidoComponent } from './Shared/dialog-pedido/dialog-pedido.comp
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
